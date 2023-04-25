@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const course = require("./router/course")
 const popular = require("./router/popular")
+const userRoute = require("./router/userRoute")
 
 app.use(cors());
 app.use("/", router);
@@ -23,6 +24,7 @@ mongoose.connect(uri, { useNewUrlParser: true }, () =>
 app.use(express.json());
 
 app.use("/api/courses", course)
+app.use("/api/user", userRoute)
 app.use("/api/populars", popular)
 
 app.listen(port,()=>{
